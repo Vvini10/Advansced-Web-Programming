@@ -18,7 +18,7 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <img src="images/Clothing_Studio_Logo-removebg-preview.png" width="80px" alt="Clothing Studio Logo">
+                    <img src="../images/Clothing_Studio_Logo-removebg-preview.png" width="80px" alt="Clothing Studio Logo">
                     <h1 class="logo-title">Sutekki<br>Store</h1>
                 </div>
 
@@ -34,7 +34,7 @@
                 </nav>
                 <div class="cart-container">
                     <a id="cart-button" href="cart.html">
-                        <img src="images/cart_11981305.png" alt="Cart" width="30" height="30">
+                        <img src="../images/cart_11981305.png" alt="Cart" width="30" height="30">
                     </a>
                     <span id="cart-count">0</span>
                     <button class="menu-icon" onclick="toggleMenu()">&#9776;</button>
@@ -59,7 +59,7 @@
                     <a href="products.html" class="btn">Explore Now &#8594;</a>
                 </div>
                 <div class="col-1">
-                    <img src="images/explore_now.png" alt="Fashion" height="500px" width="300px">
+                    <img src="../images/explore_now.png" alt="Fashion" height="500px" width="300px">
                 </div>
             </div>
         </div>
@@ -71,25 +71,25 @@
             <div class="row">
                 <div class="col-2">
                     <a href="products.html#dress">
-                        <img src="images/dress-1.jpeg" alt="Dress">
+                        <img src="../images/dress-1.jpeg" alt="Dress">
                         <p>Long Dress</p>
                     </a>
                 </div>
                 <div class="col-2">
                     <a href="products.html#jeans">
-                        <img src="images/jeans-1.jpeg" alt="Jeans">
+                        <img src="../images/jeans-1.jpeg" alt="Jeans">
                         <p>Jeans</p>
                     </a>
                 </div>
                 <div class="col-2">
                     <a href="products.html#kurti">
-                        <img src="images/kurti-1.jpeg" alt="Kurti">
+                        <img src="../images/kurti-1.jpeg" alt="Kurti">
                         <p>Kurti</p>
                     </a>
                 </div>
                 <div class="col-2">
                     <a href="products.html#shortDress">
-                        <img src="images/shortdress-1.jpeg" alt="Short Dress">
+                        <img src="../images/shortdress-1.jpeg" alt="Short Dress">
                         <p>Short Dress</p>
                     </a>
                 </div>
@@ -102,17 +102,17 @@
         <div class="row">
             <div class="col-5">
                 <a href="https://www.nykaa.com/">
-                    <img src="images/Best Offer Deals Discount Cashback Lowest Price on INR Website India.jpeg" alt="Nykaa">
+                    <img src="../images/Best Offer Deals Discount Cashback Lowest Price on INR Website India.jpeg" alt="Nykaa">
                 </a>
             </div>
             <div class="col-5">
                 <a href="https://www.paypal.com/">
-                    <img src="images/Les merveilles de Polly.jpeg" alt="Paypal">
+                    <img src="../images/Les merveilles de Polly.jpeg" alt="Paypal">
                 </a>
             </div>
             <div class="col-5">
                 <a href="https://www.myntra.com/">
-                    <img src="images/Myntra to change its logo after complaint calls it 'offensive' towards women.jpeg" alt="Myntra">
+                    <img src="../images/Myntra to change its logo after complaint calls it 'offensive' towards women.jpeg" alt="Myntra">
                 </a>
             </div>
         </div>
@@ -125,13 +125,13 @@
                 <h3>Download Our App</h3>
                 <p>Download App for Android and iOS mobile phones.</p>
                 <div class="app-logo">
-                    <img src="images/Black Get It On Google Play Button Transparent Background.jpeg" alt="Play Store">
-                    <img src="images/App Store Logo - App Store Icon White PNG Transparent With Clear Background ID 165964 _ TopPNG.jpeg" alt="App Store">
+                    <img src="../images/Black Get It On Google Play Button Transparent Background.jpeg" alt="Play Store">
+                    <img src="../images/App Store Logo - App Store Icon White PNG Transparent With Clear Background ID 165964 _ TopPNG.jpeg" alt="App Store">
                 </div>
             </div>
             <div class="footer-col">
                 <div class="logo-footer">
-                    <img src="images/Clothing_Studio_Logo-removebg-preview.png" alt="Clothing Studio Logo">
+                    <img src="../images/Clothing_Studio_Logo-removebg-preview.png" alt="Clothing Studio Logo">
                     <h1 class="logo-title-footer">Sutekki<br>Store</h1>
                 </div>
             </div>
@@ -190,7 +190,8 @@
                     itemsEl.appendChild(row);
                     total += price*quantity; qty += quantity;
                     inc.addEventListener('click', ()=>{ const c=loadCart(); c[name].quantity+=1; saveCart(c); render(); });
-                    dec.addEventListener('click', ()=>{ const c=loadCart(); c[name].quantity-=1; if(c[name].quantity<=0) delete c[name]; saveCart(c); render(); });
+                    dec.addEventListener('click', ()=>{ const c=loadCart(); c[name].quantity-=1; if(c[name].quantity<=0) delete c[name];
+                    saveCart(c); render(); });
                 });
                 totalEl.textContent = total;
                 if (headerCount) headerCount.textContent = qty;

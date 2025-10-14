@@ -21,7 +21,7 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <img src="images/Clothing_Studio_Logo-removebg-preview.png" width="80px" alt="Clothing Studio Logo">
+                    <img src="../images/Clothing_Studio_Logo-removebg-preview.png" width="80px" alt="Clothing Studio Logo">
                     <h1 class="logo-title">Sutekki<br>Store</h1>
                 </div>
 
@@ -37,7 +37,7 @@
                 </nav>
                 <div class="cart-container">
                     <a id="cart-button" href="cart.html">
-                        <img src="images/cart_11981305.png" alt="Cart" width="30" height="30">
+                        <img src="../images/cart_11981305.png" alt="Cart" width="30" height="30">
                     </a>
                     <span id="cart-count">0</span>
                     <button class="menu-icon" onclick="toggleMenu()">&#9776;</button>
@@ -104,13 +104,13 @@
                 <h3>Download Our App</h3>
                 <p>Download App for Android and iOS mobile phones.</p>
                 <div class="app-logo">
-                    <img src="images/Black Get It On Google Play Button Transparent Background.jpeg" alt="Play Store">
-                    <img src="images/App Store Logo - App Store Icon White PNG Transparent With Clear Background ID 165964 _ TopPNG.jpeg" alt="App Store">
+                    <img src="../images/Black Get It On Google Play Button Transparent Background.jpeg" alt="Play Store">
+                    <img src="../images/App Store Logo - App Store Icon White PNG Transparent With Clear Background ID 165964 _ TopPNG.jpeg" alt="App Store">
                 </div>
             </div>
             <div class="footer-col">
                 <div class="logo-footer">
-                    <img src="images/Clothing_Studio_Logo-removebg-preview.png" alt="Clothing Studio Logo">
+                    <img src="../images/Clothing_Studio_Logo-removebg-preview.png" alt="Clothing Studio Logo">
                     <h1 class="logo-title-footer">Sutekki<br>Store</h1>
                 </div>
             </div>
@@ -143,7 +143,13 @@
         }
         // Mini-cart logic
         (function(){
-            function loadCart(){ try { return JSON.parse(localStorage.getItem('cart')) || {}; } catch(e){ return {}; } }
+            function loadCart(){
+                try {
+                    return JSON.parse(localStorage.getItem('cart')) || {};
+                } catch(e) {
+                    return {};
+                }
+            }
             function saveCart(c){ localStorage.setItem('cart', JSON.stringify(c)); }
             function count(c){ return Object.values(c).reduce((s,i)=>s+(i.quantity||0),0); }
             function render(){
@@ -168,7 +174,8 @@
                     itemsEl.appendChild(row);
                     total += price*quantity; qty += quantity;
                     inc.addEventListener('click', ()=>{ const c=loadCart(); c[name].quantity+=1; saveCart(c); render(); });
-                    dec.addEventListener('click', ()=>{ const c=loadCart(); c[name].quantity-=1; if(c[name].quantity<=0) delete c[name]; saveCart(c); render(); });
+                    dec.addEventListener('click', ()=>{ const c=loadCart(); c[name].quantity-=1; if(c[name].quantity<=0) delete c[name]; 
+                    saveCart(c); render(); });
                 });
                 totalEl.textContent = total;
                 if (headerCount) headerCount.textContent = qty;
