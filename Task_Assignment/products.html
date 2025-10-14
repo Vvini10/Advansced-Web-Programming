@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sutekki Store</title>
+    <link rel="stylesheet" href="ecommerce.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libertinus+Keyboard&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/Clothing_Studio_Logo-removebg-preview.png" width="125px" alt="Clothing Studio Logo">
+                    <h1 class="logo-title">Sutekki<br>Store</h1>
+                </div>
+                <nav id="nav-links">
+                    <ul>
+                        <li><a href="e-commerce.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html#about">About</a></li>
+                        <li><a href="about.html#contact">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </nav>
+                <div class="cart-container">
+                    <a id="cart-button" href="cart.html">
+                        <img src="images/cart_11981305.png" alt="Cart" width="30" height="30">
+                    </a>
+                    <span id="cart-count">0</span>
+                    <button class="menu-icon" onclick="toggleMenu()">&#9776;</button>
+                    <div class="mini-cart" id="mini-cart">
+                        <div class="mini-cart-header">
+                            <span>Your Cart</span>
+                            <button class="btn" id="mini-cart-close">Close</button>
+                        </div>
+                        <div class="mini-cart-items" id="mini-cart-items"></div>
+                        <div class="mini-cart-footer">
+                            <span>Total: Rs.<span id="mini-cart-total">0</span></span>
+                            <a class="btn" href="cart.html">View Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="categories">
+                <div class="row" id="dress">
+                    <div class="col-3"  data-name="Floral Dress" data-price="1500">
+                        <img src="images/dress-1.jpeg" alt="Dress">
+                        <h4>Floral Dress</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.1500</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="Cider Olive Wrap Dress" data-price="2500">
+                        <img src="images/dress-2.jpeg" alt="Dress">
+                        <h4>Cider Olive Wrap Dress</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.2500</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="Sleeveless Vest Vintage Dress" data-price="1900">
+                        <img src="images/dress-3.jpeg" alt="Dress">
+                        <h4>Sleeveless Vest Vintage Dress</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.1900</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="Cotton Summer Dress" data-price="1490">
+                        <img src="images/dress-4.jpeg" alt="Dress">
+                        <h4>Cotton Summer Dress</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.1490</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="row" id="jeans">
+                    <div class="col-3" data-name="Denim Skirt" data-price="2100">
+                        <img src="images/jeans-1.jpeg" alt="Jeans">
+                        <h4>Denim Skirt</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.2100</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="Wide Leg Jeans" data-price="1300">
+                        <img src="images/jeans-2.jpeg" alt="Jeans">
+                        <h4>Wide Leg Jeans</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.1300</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="Mid-rise Straight Jeans" data-price="1450">
+                        <img src="images/jeans-3.jpeg" alt="Jeans">
+                        <h4>Mid-rise Straight Jeans</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.1450</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="High-Waist Jeans" data-price="1500">
+                        <img src="images/jeans-4.jpeg" alt="Jeans">
+                        <h4>High-Waist Jeans</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.1500</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="row" id="kurti">
+                    <div class="col-3" data-name="Sleeveless Sarara Set" data-price="4500">
+                        <img src="images/kurti-1.jpeg" alt="Kurti">
+                        <h4>Sleeveless Sarara Set</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.4500</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="Red Floral Kurta with Sarara" data-price="1390">
+                        <img src="images/kurti-2.jpeg" alt="Kurti">
+                        <h4>Red Floral Kurta with Sarara</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.1390</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="Red Matka Silk Sarara Set" data-price="6500">
+                        <img src="images/kurti-3.jpeg" alt="Kurti">
+                        <h4>Red Matka Silk Sarara Set</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.6500</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="Sleeveless Cotton Kurta" data-price="1100">
+                        <img src="images/kurti-4.jpeg" alt="Kurti">
+                        <h4>Sleeveless Cotton Kurta</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.1100</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="row" id="shortDress">
+                    <div class="col-3" data-name="Off Shoulder Skater Dress" data-price="1500">
+                        <img src="images/shortdress-1.jpeg" alt="Short Dress">
+                        <h4>Off Shoulder Skater Dress</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.1500</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="Black Backless Maxi-Dress" data-price="1870">
+                        <img src="images/shortdress-2.jpeg" alt="Short Dress">
+                        <h4>Black Backless Maxi-Dress</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.1870</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="Ruffled Light Green Mini Dress" data-price="2300">
+                        <img src="images/shortdress-3.jpeg" alt="Short Dress">
+                        <h4>Ruffled Light Green Mini Dress</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.2300</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                    <div class="col-3" data-name="Long Sleeve Black Mini Dress" data-price="1300">
+                        <img src="images/shortdress-4.jpeg" alt="Short Dress">
+                        <h4>Long Sleeve Black Mini Dress</h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p>Rs.1300</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="row">
+            <div class="footer-col">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and ios mobile phone.</p>
+                <div class="app-logo">
+                    <img src="images/Black Get It On Google Play Button Transparent Background.jpeg" alt="Play Store">
+                    <img src="images/App Store Logo - App Store Icon White PNG Transparent With Clear Background ID 165964 _ TopPNG.jpeg" alt="App Store">
+                </div>
+            </div>
+            <div class="footer-col">
+                <div class="logo-footer">
+                    <img src="images/Clothing_Studio_Logo-removebg-preview.png" alt="Clothing Studio Logo">
+                    <h1 class="logo-title-footer">Sutekki<br>Store</h1>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Posts</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>Youtube</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2024 - Sutekki Store</p>
+    </div>
+
+<!--Scripts-->
+    <script>
+        // Cart data stored as: { [productName]: { price: number, quantity: number } }
+        let cart = JSON.parse(localStorage.getItem("cart")) || {};
+
+        function saveCart() {
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        function getCartItemCount() {
+            return Object.values(cart).reduce((sum, item) => sum + (item.quantity || 0), 0);
+        }
+
+        function updateCartCount() {
+            const countEl = document.getElementById("cart-count");
+            if (countEl) countEl.textContent = getCartItemCount();
+        }
+
+        function addToCart(name, price) {
+            const unitPrice = parseInt(price, 10) || 0;
+            if (!name || !unitPrice) return;
+            if (cart[name]) cart[name].quantity += 1;
+            else cart[name] = { price: unitPrice, quantity: 1 };
+            saveCart();
+            updateCartCount();
+        }
+
+        // Wire up Add to Cart buttons
+        document.querySelectorAll(".col-3 .btn-add").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const product = btn.closest(".col-3");
+                if (!product) return;
+                const name = product.dataset.name;
+                const price = product.dataset.price;
+                addToCart(name, price);
+            });
+        });
+
+        // Initialize count on page load
+        document.addEventListener("DOMContentLoaded", updateCartCount);
+
+        // Mini-cart shared logic (same as home page)
+        (function(){
+            function loadCart(){ try { return JSON.parse(localStorage.getItem('cart')) || {}; } catch(e){ return {}; } }
+            function saveCart(c){ localStorage.setItem('cart', JSON.stringify(c)); }
+            function count(c){ return Object.values(c).reduce((s,i)=>s+(i.quantity||0),0); }
+            function render(){
+                const cart = loadCart();
+                const itemsEl = document.getElementById('mini-cart-items');
+                const totalEl = document.getElementById('mini-cart-total');
+                const headerCount = document.getElementById('cart-count');
+                if (!itemsEl || !totalEl) return;
+                itemsEl.innerHTML='';
+                let total=0; let qty=0;
+                Object.entries(cart).forEach(([name, {price, quantity}])=>{
+                    const row = document.createElement('div');
+                    row.className = 'mini-cart-item';
+                    const title = document.createElement('div'); title.textContent = name; title.style.flex='2';
+                    const priceEl = document.createElement('div'); priceEl.textContent = 'Rs.'+price; priceEl.style.flex='1'; priceEl.style.textAlign='center';
+                    const qtyWrap = document.createElement('div'); qtyWrap.className='mini-cart-qty';
+                    const dec = document.createElement('button'); dec.className='btn'; dec.textContent='-';
+                    const q = document.createElement('span'); q.textContent=quantity;
+                    const inc = document.createElement('button'); inc.className='btn'; inc.textContent='+';
+                    qtyWrap.appendChild(dec); qtyWrap.appendChild(q); qtyWrap.appendChild(inc);
+                    row.appendChild(title); row.appendChild(priceEl); row.appendChild(qtyWrap);
+                    itemsEl.appendChild(row);
+                    total += price*quantity; qty += quantity;
+                    inc.addEventListener('click', ()=>{ const c=loadCart(); c[name].quantity+=1; saveCart(c); render(); updateCartCount(); });
+                    dec.addEventListener('click', ()=>{ const c=loadCart(); c[name].quantity-=1; if(c[name].quantity<=0) delete c[name]; saveCart(c); render(); updateCartCount(); });
+                });
+                totalEl.textContent = total;
+                if (headerCount) headerCount.textContent = qty;
+            }
+            const btn = document.getElementById('cart-button');
+            const popup = document.getElementById('mini-cart');
+            const closeBtn = document.getElementById('mini-cart-close');
+            if (btn && popup) {
+                btn.addEventListener('click', function(ev){
+                    if (!ev.ctrlKey && !ev.metaKey) {
+                        ev.preventDefault();
+                        popup.classList.toggle('active');
+                        render();
+                    }
+                });
+                if (closeBtn) closeBtn.addEventListener('click', ()=> popup.classList.remove('active'));
+                document.addEventListener('click', (e)=>{
+                    if (!popup.contains(e.target) && !btn.contains(e.target)) popup.classList.remove('active');
+                });
+                document.addEventListener('DOMContentLoaded', render);
+            }
+        })();
+    </script>
+</body>
+</html>

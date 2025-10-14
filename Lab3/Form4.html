@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form 4</title>
+    <link rel="stylesheet" href="form4_style.css">
+</head>
+<body>
+    <form>
+        <fieldset>
+            <h3>Student Registration Form</h3>
+
+            <div class="form-group">
+                <label for="first_name">First Name</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="middle_name">Middle Name</label>
+                <input type="text" id="middle_name" name="middle_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Last Name</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Course:</label>
+                <select id="course" name="course" required>
+                    <option value="" disabled selected>Select a course</option>
+                    <option value="BTech">BTech</option>
+                    <option value="BCom">BCom</option>
+                    <option value="BBA">BBA</option>
+                    <option value="BA">BA</option>
+                    <option value="BCA">BCA</option>
+                    <option value="BSc">BSc</option>
+                    <option value="MSc">MSc</option>
+                    <option value="PhD">PhD</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="Certificate">Certificate</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="gender_male">Gender:</label>
+                <div class="radio-group">
+                    <label><input type="radio" id="gender_male" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" id="gender_female" name="gender" value="female" required> Female</label>
+                    <label><input type="radio" id="gender_other" name="gender" value="other" required> Other</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone no.</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="1234567890">
+            </div>
+
+            <div class="form-group">
+                <label for="current_address">Current Address</label>
+                <textarea id="current_address" name="current_address" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="permanent_address">Permanent Address</label>
+                <textarea id="permanent_address" name="permanent_address" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email-id</label>
+                <input type="email" id="email" name="email" required placeholder="example@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit">Register</button>
+            </div>
+        </fieldset>
+    </form>
+</body>
+</html>

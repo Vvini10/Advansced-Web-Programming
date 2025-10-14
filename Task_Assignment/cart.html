@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sutekki Store</title>
+    <link rel="stylesheet" href="ecommerce.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libertinus+Keyboard&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/Clothing_Studio_Logo-removebg-preview.png" width="80px" alt="Clothing Studio Logo">
+                    <h1 class="logo-title">Sutekki<br>Store</h1>
+                </div>
+
+                <!-- Nav links -->
+                <nav id="nav-links">
+                    <ul>
+                        <li><a href="e-commerce.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="account.html">Account</a></li>
+                    </ul>
+                </nav>
+
+                <!-- Cart Icon -->
+                <a id="cart-button" href="cart.html">
+                    <img src="images/cart_11981305.png" alt="Cart" width="30" height="30">
+                </a>
+                <span id="cart-count">0</span>
+
+                <!-- Hamburger Menu Icon -->
+                <button class="menu-icon" onclick="toggleMenu()">&#9776;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Specific Content -->
+    <main class="page-content">
+        <div class="container">
+            <h1>Your Cart</h1>
+            <div id="cart-empty" style="display:none; margin: 20px 0;">Your cart is empty.</div>
+
+            <div id="cart-list"></div>
+
+            <div id="cart-summary" style="margin-top:20px; display:none;">
+                <p><strong>Total Items:</strong> <span id="summary-count">0</span></p>
+                <p><strong>Total Price:</strong> Rs.<span id="summary-total">0</span></p>
+                <div style="margin-top: 15px;">
+                    <button id="btn-clear" class="btn" style="margin-right:10px;">Clear Cart</button>
+                    <button id="btn-checkout" class="btn">Proceed to Checkout</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="row">
+            <div class="footer-col">
+                <h3>Download Our App</h3>
+                <p>Download App for Android and iOS mobile phones.</p>
+                <div class="app-logo">
+                    <img src="images/Black Get It On Google Play Button Transparent Background.jpeg" alt="Play Store">
+                    <img src="images/App Store Logo - App Store Icon White PNG Transparent With Clear Background ID 165964 _ TopPNG.jpeg" alt="App Store">
+                </div>
+            </div>
+            <div class="footer-col">
+                <div class="logo-footer">
+                    <img src="images/Clothing_Studio_Logo-removebg-preview.png" alt="Clothing Studio Logo">
+                    <h1 class="logo-title-footer">Sutekki<br>Store</h1>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li>Coupons</li>
+                    <li>Blog Posts</li>
+                    <li>Return Policy</li>
+                    <li>Join Affiliate</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <ul>
+                    <li>Facebook</li>
+                    <li>Twitter</li>
+                    <li>Instagram</li>
+                    <li>Youtube</li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <p class="copyright">Copyright 2024 - Sutekki Store</p>
+    </div>
+
+    <!-- Script for menu toggle and cart rendering -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('nav-links').classList.toggle('active');
+        }
+
+        // Cart utilities
+        function loadCart() {
+            try {
+                return JSON.parse(localStorage.getItem('cart')) || {};
+            }
+            catch {
+                return {};
+            }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function getCartCount(cart) {
+            return Object.values(cart).reduce((sum, it) => sum + (it.quantity || 0), 0);
+        }
+
+        function renderCart() {
+            const cart = loadCart();
+            const listEl = document.getElementById('cart-list');
+            const emptyEl = document.getElementById('cart-empty');
+            const summaryEl = document.getElementById('cart-summary');
+            const countEl = document.getElementById('summary-count');
+            const totalEl = document.getElementById('summary-total');
+            const headerCount = document.getElementById('cart-count');
+
+            listEl.innerHTML = '';
+
+            const names = Object.keys(cart);
+            if (names.length === 0) {
+                emptyEl.style.display = 'block';
+                summaryEl.style.display = 'none';
+                if (headerCount) headerCount.textContent = '0';
+                return;
+            }
+
+            emptyEl.style.display = 'none';
+            summaryEl.style.display = 'block';
+
+            let totalQty = 0;
+            let totalPrice = 0;
+
+            names.forEach((name) => {
+                const { price, quantity } = cart[name];
+                const row = document.createElement('div');
+                row.className = 'cart-row';
+                row.style.display = 'flex';
+                row.style.alignItems = 'center';
+                row.style.justifyContent = 'space-between';
+                row.style.padding = '10px 0';
+                row.style.borderBottom = '1px solid #eee';
+
+                const title = document.createElement('div');
+                title.textContent = name;
+                title.style.flex = '2';
+
+                const priceEl = document.createElement('div');
+                priceEl.textContent = `Rs.${price}`;
+                priceEl.style.flex = '1';
+                priceEl.style.textAlign = 'center';
+
+                const qtyWrap = document.createElement('div');
+                qtyWrap.style.flex = '1';
+                qtyWrap.style.display = 'flex';
+                qtyWrap.style.justifyContent = 'center';
+                qtyWrap.style.alignItems = 'center';
+                const btnDec = document.createElement('button');
+                btnDec.textContent = '-';
+                btnDec.className = 'btn';
+                btnDec.style.padding = '6px 10px';
+                btnDec.style.marginRight = '6px';
+                const qty = document.createElement('span');
+                qty.textContent = quantity;
+                qty.style.minWidth = '24px';
+                qty.style.textAlign = 'center';
+                const btnInc = document.createElement('button');
+                btnInc.textContent = '+';
+                btnInc.className = 'btn';
+                btnInc.style.padding = '6px 10px';
+                btnInc.style.marginLeft = '6px';
+                qtyWrap.appendChild(btnDec);
+                qtyWrap.appendChild(qty);
+                qtyWrap.appendChild(btnInc);
+
+                const subEl = document.createElement('div');
+                subEl.textContent = `Rs.${price * quantity}`;
+                subEl.style.flex = '1';
+                subEl.style.textAlign = 'center';
+
+                const btnRemove = document.createElement('button');
+                btnRemove.textContent = 'Remove';
+                btnRemove.className = 'btn';
+                btnRemove.style.backgroundColor = '#e74c3c';
+                btnRemove.style.marginLeft = '10px';
+
+                row.appendChild(title);
+                row.appendChild(priceEl);
+                row.appendChild(qtyWrap);
+                row.appendChild(subEl);
+                row.appendChild(btnRemove);
+                listEl.appendChild(row);
+
+                totalQty += quantity;
+                totalPrice += price * quantity;
+
+                btnInc.addEventListener('click', () => {
+                    const cur = loadCart();
+                    cur[name].quantity += 1;
+                    saveCart(cur);
+                    renderCart();
+                });
+
+                btnDec.addEventListener('click', () => {
+                    const cur = loadCart();
+                    cur[name].quantity -= 1;
+                    if (cur[name].quantity <= 0) delete cur[name];
+                    saveCart(cur);
+                    renderCart();
+                });
+
+                btnRemove.addEventListener('click', () => {
+                    const cur = loadCart();
+                    delete cur[name];
+                    saveCart(cur);
+                    renderCart();
+                });
+            });
+
+            countEl.textContent = totalQty;
+            totalEl.textContent = totalPrice;
+            if (headerCount) headerCount.textContent = totalQty;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCart();
+
+            const btnClear = document.getElementById('btn-clear');
+            const btnCheckout = document.getElementById('btn-checkout');
+
+            if (btnClear) {
+                btnClear.addEventListener('click', () => {
+                    localStorage.removeItem('cart');
+                    renderCart();
+                });
+            }
+
+            if (btnCheckout) {
+                btnCheckout.addEventListener('click', () => {
+                    const cart = loadCart();
+                    if (Object.keys(cart).length === 0) {
+                        alert('Your cart is empty.');
+                        return;
+                    }
+                    // Simple checkout stub
+                    alert('Thank you! Your order has been placed.');
+                    localStorage.removeItem('cart');
+                    renderCart();
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

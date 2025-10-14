@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: "Poppins", sans-serif;
+            background: #93c4f6;
+        }
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 4px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form name="myForm" onsubmit="return validateForm()">
+        <h2 style="text-align:center;">User Login</h2>
+        
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name">
+        <div id="nameError" class="error"></div>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Enter your email">
+        <div id="emailError" class="error"></div>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+        <div id="passwordError" class="error"></div>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+    function validateForm() {
+        // Clear old errors
+        document.getElementById("nameError").textContent = "";
+        document.getElementById("emailError").textContent = "";
+        document.getElementById("passwordError").textContent = "";
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        let isValid = true;
+
+        // Name check
+        if (name === "") {
+            document.getElementById("nameError").textContent = "Please enter your name.";
+            isValid = false;
+        }
+
+        // Email check
+        const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        if (email === "") {
+            document.getElementById("emailError").textContent = "Please enter your email.";
+            isValid = false;
+        } else if (!emailPattern.test(email)) {
+            document.getElementById("emailError").textContent = "Invalid email format.";
+            isValid = false;
+        }
+
+        // Password check
+        if (password === "") {
+            document.getElementById("passwordError").textContent = "Please enter your password.";
+            isValid = false;
+        } else if (password.length < 6) {
+            document.getElementById("passwordError").textContent = "Password must be at least 6 characters long.";
+            isValid = false;
+        }
+
+        // Redirect on success
+        if (isValid) {
+            alert("Welcome, " + name + "! Redirecting...");
+            window.location.href = "Validuser.html";  // Make sure file name matches exactly
+        }
+
+        return false;
+    }
+    </script>
+</body>
+</html>
