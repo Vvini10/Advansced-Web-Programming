@@ -60,8 +60,8 @@
                             </div>
                             <div class="contact-details">
                                 <h6>Phone</h6>
-                                <p class="text-muted mb-0">+1 (555) 123-4567</p>
-                                <small class="text-muted">Available 9 AM - 6 PM EST</small>
+                                <p class="text-muted mb-0">+91 9399850726</p>
+                                <small class="text-muted">Available 9 AM - 6 PM IST</small>
                             </div>
                         </div>
                         
@@ -71,7 +71,7 @@
                             </div>
                             <div class="contact-details">
                                 <h6>Location</h6>
-                                <p class="text-muted mb-0">New York, NY</p>
+                                <p class="text-muted mb-0">Pune, India</p>
                                 <small class="text-muted">Open to remote work</small>
                             </div>
                         </div>
@@ -125,43 +125,9 @@
                             </div>
                             
                             <div class="mb-3">
-                                <label class="form-label fw-semibold">Subject *</label>
-                                <select class="form-select" ng-model="formData.subject" required>
-                                    <option value="">Select a subject</option>
-                                    <option value="collaboration">Project Collaboration</option>
-                                    <option value="freelance">Freelance Work</option>
-                                    <option value="job-opportunity">Job Opportunity</option>
-                                    <option value="consultation">Consultation</option>
-                                    <option value="other">Other</option>
-                                </select>
-                                <small class="text-danger" ng-show="contactForm.$submitted && !formData.subject">Please select a subject.</small>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label class="form-label fw-semibold">Project Budget</label>
-                                <select class="form-select" ng-model="formData.budget">
-                                    <option value="">Select budget range</option>
-                                    <option value="under-5k">Under $5,000</option>
-                                    <option value="5k-10k">$5,000 - $10,000</option>
-                                    <option value="10k-25k">$10,000 - $25,000</option>
-                                    <option value="25k-50k">$25,000 - $50,000</option>
-                                    <option value="over-50k">Over $50,000</option>
-                                </select>
-                            </div>
-                            
-                            <div class="mb-3">
                                 <label class="form-label fw-semibold">Message *</label>
                                 <textarea class="form-control" rows="6" ng-model="formData.message" placeholder="Tell me about your project, timeline, and any specific requirements..." required></textarea>
                                 <small class="text-danger" ng-show="contactForm.$submitted && !formData.message">Message is required.</small>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" ng-model="formData.newsletter" id="newsletter">
-                                    <label class="form-check-label" for="newsletter">
-                                        Subscribe to my newsletter for tech updates and project showcases
-                                    </label>
-                                </div>
                             </div>
                             
                             <button type="submit" class="btn btn-primary btn-lg w-100" ng-disabled="contactForm.$invalid">
@@ -175,70 +141,6 @@
                         
                         <div class="alert alert-danger text-center mt-4" ng-show="errorMessage">
                             <i class="fas fa-exclamation-triangle me-2"></i>{{ errorMessage }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5"><i class="fas fa-question-circle text-info me-2"></i>Frequently Asked Questions</h2>
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq1">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
-                                    What types of projects do you work on?
-                                </button>
-                            </h2>
-                            <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    I specialize in full-stack web development, mobile applications, and UI/UX design. I work on projects ranging from simple websites to complex enterprise applications, e-commerce platforms, and innovative tech solutions.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq2">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
-                                    What is your typical project timeline?
-                                </button>
-                            </h2>
-                            <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Project timelines vary based on complexity and requirements. Simple websites typically take 1-2 weeks, while complex applications can take 2-6 months. I provide detailed timelines during our initial consultation.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq3">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
-                                    Do you provide ongoing support after project completion?
-                                </button>
-                            </h2>
-                            <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Yes! I offer comprehensive post-launch support including bug fixes, updates, maintenance, and feature enhancements. Support packages are tailored to your specific needs and budget.
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="faq4">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
-                                    Can you work with existing teams and systems?
-                                </button>
-                            </h2>
-                            <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    Absolutely! I have extensive experience collaborating with existing development teams and integrating with current systems. I'm comfortable working with various project management tools and communication platforms.
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
